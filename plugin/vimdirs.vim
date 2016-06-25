@@ -1,5 +1,7 @@
 "" (Auto-create backup and temp dirs in .vim home directory)
 
+" I'm stoo-pid
+
 if !exists("g:vimdirs_vimhome")
   let g:vimdirs_vimhome = expand("~/.vim/")
 endif
