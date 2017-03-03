@@ -1,9 +1,7 @@
-"" (Auto-create backup and temp dirs in .vim home directory)
-
-" I'm stoo-pid
+" Auto-create backup, temp and undo dirs in .vim home directory
 
 if !exists("g:vimdirs_vimhome")
-  let g:vimdirs_vimhome = expand("~/.vim/")
+  let g:vimdirs_vimhome = $HOME.'/.vim/'
 endif
 
 if !exists("g:vimdirs_temp")
@@ -12,6 +10,10 @@ endif
 
 if !exists("g:vimdirs_backup")
   let g:vimdirs_backup = g:vimdirs_vimhome."backup"
+endif
+
+if !exists("g:vimdirs_undo")
+  let g:vimdirs_undo = g:vimdirs_vimhome."undo"
 endif
 
 if has("unix") || has("mac")
@@ -26,4 +28,5 @@ if has("unix") || has("mac")
     endif
     execute "set directory=".escape(g:vimdirs_temp, ' ')
     execute "set backupdir=".escape(g:vimdirs_backup, ' ')
+    execute "set undodir=".escape(g:vimdirs_undo, ' ')
 endif
