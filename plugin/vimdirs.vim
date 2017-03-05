@@ -26,7 +26,10 @@ if has("unix") || has("mac")
     if !isdirectory(g:vimdirs_vimhome."temp")
         call mkdir(g:vimdirs_vimhome."temp","p")
     endif
-    execute "set directory=".escape(g:vimdirs_temp, ' ')
-    execute "set backupdir=".escape(g:vimdirs_backup, ' ')
-    execute "set undodir=".escape(g:vimdirs_undo, ' ')
+    if !isdirectory(g:vimdirs_vimhome."undo")
+        call mkdir(g:vimdirs_vimhome."undo","p")
+    endif
+    execute "set directory=".escape(g:vimdirs_temp, ' ').'//'
+    execute "set backupdir=".escape(g:vimdirs_backup, ' ').'//'
+    execute "set undodir=".escape(g:vimdirs_undo, ' ').'//'
 endif
