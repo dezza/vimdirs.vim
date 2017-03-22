@@ -32,4 +32,7 @@ if has("unix") || has("mac")
     execute "set directory=".escape(g:vimdirs_temp, ' ').'//'
     execute "set backupdir=".escape(g:vimdirs_backup, ' ').'//'
     execute "set undodir=".escape(g:vimdirs_undo, ' ').'//'
+    set undofile
+    set backup
 endif
+
